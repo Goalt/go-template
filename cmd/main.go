@@ -66,3 +66,12 @@ func main() {
 		fmt.Println(err)
 	}
 }
+
+type Interf interface {
+	Test(int) string
+}
+
+func someFunction(intf Interf) {
+	s := intf.Test(1)
+	fmt.Println(s)
+}
