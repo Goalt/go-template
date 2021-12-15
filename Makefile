@@ -8,4 +8,8 @@ clean:
 	docker volume rm app_db_data || true
 generate:
 	cd internal/provider/ && wire ; cd ../..
+lint:
+	golangci-lint run
+test:
+	go test ./...
 all: clean build run
