@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  app:
+    depends_on: [ db ]
+    build: .
+    container_name: app
+    ports: [ "8080:33333" ]
+    restart: always
+    volumes: [ fs_data:/data ]
+    env_file: configs/docker_env.env
+  db:
+    image: mariadb:latest
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    env_file: configs/docker_env.env
+    ports: [ "20001:3306" ]
+volumes:
+  db_data: { }
+  fs_data: { }
