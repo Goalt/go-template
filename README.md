@@ -15,3 +15,8 @@ Clean, build, run.
 ```bash
 make all
 ```
+
+## Mocs
+```bash
+mockery --name=Stringer
+```
