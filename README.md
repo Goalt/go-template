@@ -16,7 +16,7 @@ Clean, build, run.
 make all
 ```
 
-## Mocs
+## Mocs generation
 ```bash
-mockery --name=Stringer
+mockgen -source=main.go -destination=mocks/mocks_main.go
 ```

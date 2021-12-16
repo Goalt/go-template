@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/Goalt/go-template/cmd/subcomands"
@@ -59,10 +60,16 @@ func main() {
 		},
 	}
 
-	fmt.Print(os.Getwd())
-
 	err := app.Run(os.Args)
 	if err != nil {
 		fmt.Println(err)
 	}
+}
+
+type simpleInterface interface {
+	SimpleInterfaceFunc(int) string
+}
+
+func simpleFunc(i simpleInterface) {
+	log.Println(i.SimpleInterfaceFunc(42))
 }
