@@ -8,14 +8,15 @@ services:
     ports: [ "8080:33333" ]
     restart: always
     volumes: [ fs_data:/data ]
-    env_file: configs/docker_env.env
+    env_file: .env
+    environment:
+      - SUPER_SECRET=123456
   db:
     image: mariadb:latest
     volumes:
       - db_data:/var/lib/mysql
     restart: always
-    env_file: configs/docker_env.env
-    ports: [ "20001:3306" ]
+    env_file: .env
 volumes:
   db_data: { }
   fs_data: { }

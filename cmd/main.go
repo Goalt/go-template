@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"time"
 
 	"github.com/Goalt/go-template/cmd/subcomands"
 	"github.com/Goalt/go-template/cmd/variables"
@@ -56,6 +57,12 @@ func main() {
 			},
 		},
 		Action: func(ctx *cli.Context) error {
+			fmt.Println(os.Environ())
+
+			for now := range time.Tick(time.Second * 4) {
+				fmt.Println(now)
+			}
+
 			return nil
 		},
 	}
