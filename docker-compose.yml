@@ -2,9 +2,10 @@ version: "3.7"
 
 services:
   app:
+    image: go-template/app
     depends_on: [ db ]
-    build: .
     container_name: app
+    build: .
     ports: [ "8080:33333" ]
     restart: always
     volumes: [ fs_data:/data ]
