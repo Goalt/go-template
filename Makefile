@@ -1,15 +1,13 @@
-build:
-	docker build -t app:latest .
 run:
-	docker-compose -p app -f docker-compose.yml up
+	docker-compose -p go-template -f docker-compose.yml up
 clean:
 	docker stop app ; docker rm app || true
-	docker stop app_db_1; docker rm app_db_1 || true
-	docker volume rm app_db_data || true
+	docker stop go-template_db_1; docker rm go-template_db_1 || true
+	docker volume rm go-template_db_data || true
 generate:
 	cd internal/provider/ && wire ; cd ../..
 lint:
 	golangci-lint run
 test:
 	go test ./...
-all: clean build run
+all: clean run
